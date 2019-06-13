@@ -1,0 +1,46 @@
+<div class="phonePicker">
+  <div class="inputField">
+    <p-dropdown
+      [options]="countries"
+      [(ngModel)]="selectedCountry"
+      [style]="{ 'min-width': '64px', border: 'none' }"
+      [readonly]="false"
+      (onChange)="setCountry($event)"
+      [disabled]="disabled"
+    >
+      <ng-template let-selectedItem pTemplate="selectedItem">
+        <div class="flag-box">
+          <div class="flag" [ngClass]="selectedItem.country.code"></div>
+        </div>
+      </ng-template>
+      <ng-template let-item pTemplate="item">
+        <div
+          class="ui-helper-clearfix"
+          style="position: relative;height:25px; width: 310px;"
+        >
+          <div class="flag-box">
+            <div class="flag" [ngClass]="item.country.code"></div>
+          </div>
+          <span class="countryName">{{ item.label }}</span
+          ><span class="dialCode">+{{ item.value }}</span>
+        </div>
+      </ng-template>
+    </p-dropdown>
+    <input
+      type="tel"
+      class="telControl"
+      placeholder="(345) 323-1234"
+      (input)="phone$.next($event.target.value)"
+      [(ngModel)]="inputText"
+      [disabled]="disabled"
+    />
+  </div>
+  <button
+    [ngClass]="'callButton'"
+    (click)="onCallClickHandler()"
+    [disabled]="isValid$ | async"
+  >
+    <i class="fa fa-phone" aria-hidden="true"></i>
+  </button>
+</div>
+<label *ngIf="isValid$ | async as valid">Phone is not valid</label>

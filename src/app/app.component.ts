@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'phoneTest';
+  title = 'ngPhone';
+  onCallClicked($event) {
+    console.log($event);
+  }
 }

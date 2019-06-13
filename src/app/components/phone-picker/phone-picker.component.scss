@@ -1,0 +1,69 @@
+.phonePicker {
+  display: flex;
+  width: max-content;
+  .inputField {
+    border: #999 solid 1px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 6px;
+    .ui-dropdown.flagDrop {
+      min-width: 4em !important;
+      border: none;
+      &:hover {
+        background-color: #999;
+      }
+    }
+    .countryName {
+      margin-right: 6px;
+    }
+    .dialCode {
+      color: #999;
+    }
+    input[type='tel'] {
+      position: relative;
+      z-index: 0;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-right: 36px;
+      margin-right: 0;
+      &:hover {
+        border: none;
+      }
+      &:focus {
+        border: 0px;
+        outline: none;
+      }
+    }
+    .telControl {
+      height: 34px;
+      padding: 6px 12px;
+      padding-right: 12px;
+      padding-left: 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: none;
+    }
+    &:hover {
+      border-color: #66afe9;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+    }
+  }
+  .callButton {
+    height: 35px;
+    width: 42px;
+    margin: 0;
+    color: #ffffff;
+    background-color: #007ad9;
+    border: 1px solid #007ad9;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+}

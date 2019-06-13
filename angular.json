@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "phoneTest": {
+    "ngPhone": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,22 +12,28 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/phoneTest",
+            "outputPath": "dist/ngPhone",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/images/flags16.png"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "src/styles/styles.scss",
+              "src/styles/flags.scss",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": []
           },
@@ -61,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "phoneTest:build"
+            "browserTarget": "ngPhone:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "phoneTest:build:production"
+              "browserTarget": "ngPhone:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "phoneTest:build"
+            "browserTarget": "ngPhone:build"
           }
         },
         "test": {
@@ -82,13 +88,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": [],
             "scripts": []
           }
         },
@@ -100,24 +101,23 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "phoneTest:serve"
+            "devServerTarget": "ngPhone:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "phoneTest:serve:production"
+              "devServerTarget": "ngPhone:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "phoneTest"
+    }
+  },
+  "defaultProject": "ngPhone"
 }
